@@ -1,10 +1,10 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import logging
 import pickle
+import os
 
-with open('credentials/telegram.token', 'rb') as handle:
-    TELEGRAM_TOKEN = pickle.load(handle)
 
+TELEGRAM_TOKEN = os.environ['TELEGRAM_TOKEN']
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
