@@ -42,22 +42,19 @@ def echo(bot, update):
     #                          chat_id=chat_id)
 
     update.message.reply_text(url)
-    bot.send_photo(photo=image_path, chat_id="@onenightprototype", caption="Original Picture {}".format(image_path))
-    bot.send_message(text=url, chat_id="@onenightprototype")
+    bot.send_photo(photo=image_path, chat_id=-1001338525741, caption="Original Picture {}".format(image_path))
+    bot.send_message(text=url, chat_id=-1001338525741)
 
 
 def error(bot, update, error):
     logger.warning('Update "%s" caused error "%s"', update, error)
 
-def asdf(bot, update):
-    print(update.message.chat_id)
 
 def main():
     updater = Updater(TELEGRAM_TOKEN)
 
     dp = updater.dispatcher
 
-    dp.add_handler(MessageHandler(Filters.text, asdf))
     dp.add_handler(MessageHandler(Filters.photo, echo))
 
     dp.add_error_handler(error)
