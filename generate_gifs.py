@@ -68,16 +68,18 @@ def upload_image(content_filename):
     print('content_url: {}'.format(original_content_url))
     return original_content_url
 
+with open("numbers_of_templates.txt") as f:
+        s = f.readlines()
+    template_numbers = list(map(int, ''.join(s).replace(",", "").replace("\n", " ").split()))
+
 
 def make_fun_gif(path):
+    print("Making gif:", path)
     original_content_url = upload_image(path)
     iterations = 10
     content_url = original_content_url
     result_image_urls = [original_content_url]
 
-    with open("numbers_of_templates.txt") as f:
-        s = f.readlines()
-    template_numbers = list(map(int, ''.join(s).replace(",", "").replace("\n", " ").split()))
 
 
     # In[57]:
