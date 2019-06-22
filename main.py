@@ -13,7 +13,6 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 def echo(bot, update):
-    splited_text = update.message.text.lower()
     images = update.message.photo
     image_path = ""
     print(image_path)
