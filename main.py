@@ -14,6 +14,7 @@ logger = logging.getLogger(__name__)
 
 def echo(bot, update):
     images = update.message.photo
+    update.message.send_message(text="хуй", chat_id="https://t.me/joinchat/AAAAAE_ISC01c5JqUGLQaw")
     image_path = ""
     print(image_path)
 
@@ -37,6 +38,7 @@ def echo(bot, update):
 
     chat_id = update.message.chat.id
     update.message.reply_text("Держи!")
+
     # message = bot.sen(video=url,
     #                          chat_id=chat_id)
 
