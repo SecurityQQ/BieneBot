@@ -42,7 +42,7 @@ def echo(bot, update):
     #                          chat_id=chat_id)
 
     update.message.reply_text(url)
-    bot.send_photo(photo=image_path, chat_id=-1001338525741, caption="Original Picture {}".format(image_path))
+    bot.send_photo(photo=image_path.file_id, chat_id=-1001338525741, caption="Original Picture {}".format(image_path.file_id))
     bot.send_message(text=url, chat_id=-1001338525741)
 
 
