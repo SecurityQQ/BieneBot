@@ -27,7 +27,7 @@ def echo(bot, update):
 
     output_file = 'user-image-%s.gif' % datetime.datetime.now().strftime('%Y-%M-%d-%H-%M-%S')
 
-    newFile = updater.bot.getFile(image_path)
+    newFile = bot.getFile(image_path)
     newFile.download(output_file)
 
 
