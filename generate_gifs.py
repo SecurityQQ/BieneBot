@@ -26,7 +26,10 @@ def create_gif(urls, duration=0.4):
     images = []
     for url in urls:
         s = imageio.imread(url)
-        new_image = imresize(s, (s.shape[0]//2, s.shape[1]//2, 3))
+        if s.shape[0] > 700 and s.shape[1] > 700:
+            new_image = imresize(s, (s.shape[0]//2, s.shape[1]//2, 3))
+        else:
+            new_image = s
         s = imageio.core.util.Image(new_image)
         images.append(s)
     output_file = 'gif-%s.gif' % datetime.datetime.now().strftime('%Y-%M-%d-%H-%M-%S')
@@ -78,6 +81,7 @@ def make_fun_gif(path):
     print("Making gif:", path)
     original_content_url = upload_image(path)
     iterations = 10
+
     result_image_urls = [original_content_url]
 
 
