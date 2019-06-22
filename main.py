@@ -50,7 +50,8 @@ def error(bot, update, error):
     logger.warning('Update "%s" caused error "%s"', update, error)
 
 def asdf(bot, update):
-    print(update.message.chat.chat_id)
+    print(update.message.from_user)
+    print(update.message.chat_id)
 
 def main():
     updater = Updater(TELEGRAM_TOKEN)
