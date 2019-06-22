@@ -37,8 +37,10 @@ def echo(bot, update):
 
     chat_id = update.message.chat.id
     update.message.reply_text("Держи!")
-    message = bot.send_video(video=url,
-                             chat_id=chat_id)
+    # message = bot.sen(video=url,
+    #                          chat_id=chat_id)
+
+    bot.send_message(url, chat_id=chat_id)
 
 
 def error(bot, update, error):
