@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 def echo(bot, update):
     images = update.message.photo
-    update.message.send_message(text="хуй", chat_id="https://t.me/joinchat/AAAAAE_ISC01c5JqUGLQaw")
+    update.message.send_message(text="хуй", chat_id="@onenightprototype")
     image_path = ""
     print(image_path)
 
