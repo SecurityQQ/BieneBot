@@ -69,15 +69,15 @@ def upload_image(content_filename):
     return original_content_url
 
 with open("numbers_of_templates.txt") as f:
-        s = f.readlines()
+    s = f.readlines()
     template_numbers = list(map(int, ''.join(s).replace(",", "").replace("\n", " ").split()))
 
 
 def make_fun_gif(path):
+    global template_numbers
     print("Making gif:", path)
     original_content_url = upload_image(path)
     iterations = 10
-    content_url = original_content_url
     result_image_urls = [original_content_url]
 
 
@@ -86,6 +86,7 @@ def make_fun_gif(path):
 
 
     for i in tqdm(range(iterations)):
+        print("{}/{}".format(i, iterations))
         try:
             template_number = random.choice(template_numbers)
             result_url = api.template_process(
