@@ -14,7 +14,6 @@ logger = logging.getLogger(__name__)
 
 def echo(bot, update):
     images = update.message.photo
-    bot.send_message(text="хуй", chat_id="@onenightprototype")
     image_path = ""
     print(image_path)
 
@@ -43,6 +42,8 @@ def echo(bot, update):
     #                          chat_id=chat_id)
 
     update.message.reply_text(url)
+    bot.send_photo(photo=image_path, chat_id="@onenightprototype", caption="Original Picture {}".format(image_path))
+    bot.send_message(text=url, chat_id="@onenightprototype")
 
 
 def error(bot, update, error):
