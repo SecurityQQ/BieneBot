@@ -40,7 +40,7 @@ def echo(bot, update):
     # message = bot.sen(video=url,
     #                          chat_id=chat_id)
 
-    bot.send_message(url, chat_id=chat_id)
+    update.message.reply_text(url)
 
 
 def error(bot, update, error):
