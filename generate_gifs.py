@@ -119,10 +119,10 @@ def make_fun_gif(path, iterations=FILTER_ITERATIONS):
     print("Making gif:", path)
     original_content_url = upload_image(path)
     result_image_urls = [original_content_url]
-
-    for i in tqdm(range(iterations)):
+    templates = random_walk(iterations)
+    for i, template in enumerate(templates):
         print("{}/{}".format(i, iterations))
-        template_number=random.choice(template_numbers)
+        template_number=template
         try:
             result_url = filter_image(
                 image_url=result_image_urls[-1],
