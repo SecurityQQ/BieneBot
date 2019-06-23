@@ -10,3 +10,5 @@ flask
 flask-cors
 
 clarifai
+
+pandas

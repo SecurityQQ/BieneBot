@@ -1,14 +1,5 @@
 
 # coding: utf-8
-
-# In[60]:
-
-
-from client_photolab import ClientPhotolab
-import os.path
-
-api = ClientPhotolab()
-
 import os
 import sys
 import datetime
@@ -16,11 +7,12 @@ import imageio
 import time
 import datetime
 import random
-from scipy.misc import imresize
-
+import pandas as pd
 from tqdm import tqdm
-
 from scipy.misc import imresize
+
+from client_photolab import ClientPhotolab
+api = ClientPhotolab()
 
 GIF_DURATION = 1.5
 FILTER_ITERATIONS = 10
@@ -57,6 +49,45 @@ def download_resources():
     content_filename = 'girl.jpg'
     if not os.path.exists(content_filename):
         api.download_file('http://soft.photolab.me/samples/girl.jpg', content_filename)
+
+
+def read_dataset(filepath="./data/asdf - asdf.csv"):
+    filepath = "./data/asdf - asdf.csv"
+    data = pd.read_csv(filepath, index_col=0)
+    data = data[["0", "1", "alex review", "max review"]]
+
+    data = data[
+        [data.columns[0], data.columns[1]] + list(data.columns[3:])
+    ].fillna(0)
+    data = data.rename(columns={
+        data.columns[0]: "f", 
+        data.columns[1]: "s"
+    })
+    data["score"] = data[data.columns[2:]].sum(axis=1)
+    data = data[["f", "s", "score"]]
+
+    data = data[data.score != 0]
+    return data
+
+def random_walk(MAX_TEMPLATES=5):
+    data = read_dataset()
+
+    next_template = random.choice(data.f.unique())
+    template_sequence = [next_template]
+
+    for i in range(MAX_TEMPLATES):
+        try:
+            data_slice = data[data.f == next_template]
+            if data_slice.shape[0] == 0:
+                break
+            next_template = random.choices(list(data_slice.s), list(data_slice.score))[0]
+            template_sequence.append(next_template)
+        except Exception as e:
+            print(e)
+            break
+            
+    return template_sequence
+
 
 def resize(img, max_h, max_w):
     s = img

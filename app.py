@@ -40,26 +40,27 @@ def filter_image():
 def filter_using_ai():
     image_url = request.args.get('url')
 
-    # choose templates with 
-    first_template = 123
-    second_template = 321
+    template_sequence = generate_gifs.random_walk()
 
-    first_url = generate_gifs.filter_image(
-        image_url, 
-        first_template, 
-    )
+    next_url = image_url
 
-    second_url = generate_gifs.filter_image(
-        first_url, 
-        second_template, 
-    )
+    res = {}
+    for i, templ in enumerate(template_sequence):
+        try:
+            next_url = generate_gifs.filter_image(
+                next_url, 
+                templ, 
+            )
+            res[i] = {
+                "url": next_url,
+                "template": int(templ)
+            }
+        except:
+            pass
 
     return jsonify({
-        'first_url': first_url,
-        'first_template': first_template,
-        'second_url': second_url,
-        'second_template': second_template,
-        'url': second_url
+        'steps': res,
+        'url': next_url
     })
 
 
