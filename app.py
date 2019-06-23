@@ -67,7 +67,7 @@ def filter_using_ai():
 
 
 @app.route('/publish', methods=['GET'])
-def publist_to_telegram():
+def publish_to_telegram():
     TELEGRAM_TOKEN = os.environ['TELEGRAM_TOKEN']
     content_url = request.args.get('url')
 
@@ -80,6 +80,11 @@ def publist_to_telegram():
     )
 
     return jsonify({'status': r.ok, 'desc': r.text})
+
+
+# @app.route('/create_gif', methods=['GET']
+# def create_gif():
+#     content_url = request.args.get('url')
 
 
 from clarifai.rest import ClarifaiApp
