@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15af012b-5691-478a-9973-83c115c2cc1d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generate_gifs.py" afterPath="$PROJECT_DIR$/generate_gifs.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +22,8 @@
       <file leaf-file-name="generate_gifs.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/generate_gifs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="123" column="13" lean-forward="false" selection-start-line="123" selection-start-column="4" selection-end-line="123" selection-end-column="13" />
+            <state relative-caret-position="408">
+              <caret line="124" column="25" lean-forward="false" selection-start-line="124" selection-start-column="25" selection-end-line="124" selection-end-column="25" />
               <folding>
                 <element signature="e#17#26#0" expanded="true" />
               </folding>
@@ -763,8 +764,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/generate_gifs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="123" column="13" lean-forward="false" selection-start-line="123" selection-start-column="4" selection-end-line="123" selection-end-column="13" />
+        <state relative-caret-position="408">
+          <caret line="124" column="25" lean-forward="false" selection-start-line="124" selection-start-column="25" selection-end-line="124" selection-end-column="25" />
           <folding>
             <element signature="e#17#26#0" expanded="true" />
           </folding>

@@ -122,6 +122,7 @@ def make_fun_gif(path, iterations=FILTER_ITERATIONS):
     templates = random_walk(iterations * 5)
 
     success_i = 0
+    print("Templates: ", len(templates))
     for i, template in enumerate(templates):
         print("{}/{}".format(i, iterations))
         template_number=template
