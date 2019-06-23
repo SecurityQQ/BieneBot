@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15af012b-5691-478a-9973-83c115c2cc1d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generate_gifs.py" afterPath="$PROJECT_DIR$/generate_gifs.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,7 +18,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="generate_gifs.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="generate_gifs.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/generate_gifs.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
@@ -52,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="633">
-              <caret line="45" column="34" lean-forward="false" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
+            <state relative-caret-position="329">
+              <caret line="46" column="111" lean-forward="true" selection-start-line="46" selection-start-column="111" selection-end-line="46" selection-end-column="111" />
               <folding>
                 <element signature="e#0#73#0" expanded="true" />
               </folding>
@@ -144,11 +144,11 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/runtime.txt" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/numbers_of_templates.txt" />
         <option value="$PROJECT_DIR$/clarifai.py" />
         <option value="$PROJECT_DIR$/clarifai_test.py" />
         <option value="$PROJECT_DIR$/generate_gifs.py" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -725,16 +725,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="633">
-          <caret line="45" column="34" lean-forward="false" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/9CFEA44E-9528-11E9-AEB3-02FD6554B874.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -766,6 +756,16 @@
           <caret line="18" column="19" lean-forward="true" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
           <folding>
             <element signature="e#17#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="46" column="111" lean-forward="true" selection-start-line="46" selection-start-column="111" selection-end-line="46" selection-end-column="111" />
+          <folding>
+            <element signature="e#0#73#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -44,7 +44,11 @@ def echo(bot, update):
     update.message.reply_text(url)
     # bot.send_photo(photo=image_path.file_id, chat_id=-1001338525741, caption="Original Picture {}".format(image_path.file_id))
     bot.send_message(text=url, chat_id=-1001338525741)
+    update.message.reply_text("Кстати, я все время присылаю разные гифки, пришли мне ещё одну свою фотографию")
 
+
+def start(bot, update):
+    update.message.reply_text("Привет! Я CrazyGifBot, чтобы начать работу со мной загрузи фото с собой, а я пришлю тебе офигенную гифку")
 
 def error(bot, update, error):
     logger.warning('Update "%s" caused error "%s"', update, error)
@@ -55,6 +59,7 @@ def main():
 
     dp = updater.dispatcher
 
+    dp.add_handler(CommandHandler('start', start))
     dp.add_handler(MessageHandler(Filters.photo, echo))
 
     dp.add_error_handler(error)
