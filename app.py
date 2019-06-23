@@ -45,17 +45,19 @@ def filter_using_ai():
     next_url = image_url
 
     res = {}
-    for i, templ in enumerate(template_sequence):
+    worked_iteration = 0
+    for templ in template_sequence:
         try:
             next_url = generate_gifs.filter_image(
                 next_url, 
                 templ, 
             )
-            res[i] = {
+            res[worked_iteration] = {
                 "url": next_url,
                 "template": int(templ)
             }
         except:
+            worked_iteration += 1
             pass
 
     return jsonify({
