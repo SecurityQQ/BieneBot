@@ -21,8 +21,8 @@
       <file leaf-file-name="generate_gifs.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/generate_gifs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="82" column="40" lean-forward="true" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
+            <state relative-caret-position="439">
+              <caret line="77" column="49" lean-forward="false" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="49" />
               <folding>
                 <element signature="e#17#26#0" expanded="true" />
               </folding>
@@ -765,8 +765,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/generate_gifs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="82" column="40" lean-forward="true" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
+        <state relative-caret-position="439">
+          <caret line="77" column="49" lean-forward="false" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="49" />
           <folding>
             <element signature="e#17#26#0" expanded="true" />
           </folding>

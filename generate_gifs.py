@@ -75,11 +75,12 @@ def random_walk(MAX_TEMPLATES=5):
     next_template = random.choice(data.f.unique())
     template_sequence = [next_template]
 
-    for i in range(MAX_TEMPLATES):
+    while len(template_sequence) < MAX_TEMPLATES:
         try:
             data_slice = data[data.f == next_template]
             if data_slice.shape[0] == 0:
-                break
+                template_sequence[-1] = random.choice(data.f.unique())
+                continue
             next_template = random.choices(list(data_slice.s), list(data_slice.score))[0]
             template_sequence.append(next_template)
         except Exception as e:
