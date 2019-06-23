@@ -66,7 +66,7 @@ def read_dataset(filepath="./data/asdf - asdf.csv"):
     data["score"] = data[data.columns[2:]].sum(axis=1)
     data = data[["f", "s", "score"]]
 
-    data = data[data.score != 0]
+    data.score = data.score + 1e-5
     return data
 
 def random_walk(MAX_TEMPLATES=5):
