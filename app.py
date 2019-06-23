@@ -82,9 +82,14 @@ def publish_to_telegram():
     return jsonify({'status': r.ok, 'desc': r.text})
 
 
-# @app.route('/create_gif', methods=['GET']
-# def create_gif():
-#     content_url = request.args.get('url')
+@app.route('/create_gif', methods=['GET'])
+def create_final_gif():
+    urls = request.args.get('urls').split(',')
+    output_gif_file = generate_gifs.create_gif(urls)
+    final_gif_url = generate_gifs.upload_image(output_gif_file)
+    return jsonify({
+        'url': final_gif_url
+    })
 
 
 from clarifai.rest import ClarifaiApp
