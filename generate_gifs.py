@@ -22,7 +22,7 @@ from tqdm import tqdm
 
 from scipy.misc import imresize
 
-def create_gif(urls, duration=0.4):
+def create_gif(urls, duration=2):
     images = []
     for url in urls:
         s = imageio.imread(url)
