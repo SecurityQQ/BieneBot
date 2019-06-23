@@ -2,7 +2,9 @@ import os
 import requests
 from flask import Flask, jsonify, request
 
+from flask_cors import CORS
 app = Flask(__name__)
+cors = CORS(app)
 
 import generate_gifs
 
