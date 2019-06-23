@@ -15,7 +15,7 @@ from client_photolab import ClientPhotolab
 api = ClientPhotolab()
 
 GIF_DURATION = 1.5
-FILTER_ITERATIONS = 10
+FILTER_ITERATIONS = 6
 DEFAULT_ROTATE = 10
 
 def get_template_numbers():
@@ -102,7 +102,7 @@ def upload_image(content_filename):
     print('content_url: {}'.format(original_content_url))
     return original_content_url
 
-def filter_image(image_url, template_number, rotate=DEFAULT_ROTATE ):
+def filter_image(image_url, template_number, rotate=DEFAULT_ROTATE):
     result_url = api.template_process(
         template_number,
         [{
