@@ -66,6 +66,7 @@ def read_dataset(filepath="./data/asdf - asdf.csv"):
     data["score"] = data[data.columns[2:]].sum(axis=1)
     data = data[["f", "s", "score"]]
 
+    data.score = data.score + 0.1
     data = data[data.score != 0]
     return data
 
