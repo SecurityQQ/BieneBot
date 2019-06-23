@@ -138,10 +138,11 @@ def make_fun_gif(path, iterations=FILTER_ITERATIONS):
             if ".jpg" in result_url or ".png" in result_url or ".jpeg" in result_url:
                 result_image_urls.append(result_url)
                 success_i = success_i + 1
-
+            else:
+                print("Fail: ", i)
             if success_i >= iterations:
                 break
-                
+
         except Exception as e:
             print("Error with filter:", template_number, e)
 
