@@ -107,27 +107,19 @@ def make_fun_gif(path):
     for i in tqdm(range(iterations)):
         print("{}/{}".format(i, iterations))
         try:
-            template_number = random.choice(template_numbers)
-            result_url = api.template_process(
-                template_number,
-                [{
-                    'url' : result_image_urls[-1],
-    #                 'rotate' : random.choice(list(range(90))),
-                    'rotate': 10,
-                    'flip' : 0,
-                    'crop' : '0,0,1,1'
-                }]
+            result_url = filter_image(
+                image_url=result_image_urls[-1],
+                template_number=random.choice(template_numbers),
+                rotate=10,
             )
 
             print('i: {}, result_url: {}'.format(i, result_url))
 
+            # If result is image, not video
             if ".jpg" in result_url or ".png" in result_url or ".jpeg" in result_url:
                 result_image_urls.append(result_url)
         except Exception as e:
             print("Error with filter:", template_number, e)
-
-
-    # In[62]:
 
 
     result_image_urls = [r for r in result_image_urls if ".jpg" in r or ".png" in r or ".jpeg" in r]
