@@ -56,8 +56,8 @@ def filter_using_ai():
                 "url": next_url,
                 "template": int(templ)
             }
-        except:
             worked_iteration += 1
+        except:
             pass
 
     return jsonify({
