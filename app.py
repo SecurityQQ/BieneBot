@@ -85,7 +85,7 @@ def publish_to_telegram():
 @app.route('/create_gif', methods=['GET'])
 def create_final_gif():
     urls = request.args.get('urls').split(',')
-    output_gif_file = generate_gifs.create_gif(urls)
+    output_gif_file = generate_gifs.create_gif(urls, 3.0)
     final_gif_url = generate_gifs.upload_image(output_gif_file)
     return jsonify({
         'url': final_gif_url
