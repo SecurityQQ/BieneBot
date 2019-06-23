@@ -22,7 +22,20 @@ from tqdm import tqdm
 
 from scipy.misc import imresize
 
-def create_gif(urls, duration=2):
+GIF_DURATION = 1.5
+FILTER_ITERATIONS = 10
+DEFAULT_ROTATE = 10
+
+def get_template_numbers():
+    template_numbers = []
+    with open("numbers_of_templates.txt") as f:
+        s = f.readlines()
+        template_numbers = list(map(int, ''.join(s).replace(",", "").replace("\n", " ").split()))
+    return template_numbers
+
+template_numbers = get_template_numbers()
+
+def create_gif(urls, duration=GIF_DURATION):
     images = []
     for url in urls:
         s = imageio.imread(url)
@@ -36,23 +49,14 @@ def create_gif(urls, duration=2):
     imageio.mimsave(output_file, images, duration=duration)
     return output_file
 
+def download_resources():
+    resourses_filename = 'resources.zip'
+    if not os.path.exists(resourses_filename):
+        api.download_file('http://soft.photolab.me/samples/resources.zip', resourses_filename)
 
-# In[52]:
-
-
-resourses_filename = 'resources.zip'
-if not os.path.exists(resourses_filename):
-    api.download_file('http://soft.photolab.me/samples/resources.zip', resourses_filename)
-
-content_filename = 'girl.jpg'
-if not os.path.exists(content_filename):
-    api.download_file('http://soft.photolab.me/samples/girl.jpg', content_filename)
-
-
-# _____
-
-# In[53]:
-
+    content_filename = 'girl.jpg'
+    if not os.path.exists(content_filename):
+        api.download_file('http://soft.photolab.me/samples/girl.jpg', content_filename)
 
 def resize(img, max_h, max_w):
     s = img
@@ -62,25 +66,12 @@ def resize(img, max_h, max_w):
     s = imageio.core.util.Array(new_image)
     return imageio.core.util.Array(new_image)
 
-
-# In[55]:
-
-
 def upload_image(content_filename):
     original_content_url = api.image_upload(content_filename)
     print('content_url: {}'.format(original_content_url))
     return original_content_url
 
-def get_template_numbers():
-    template_numbers = []
-    with open("numbers_of_templates.txt") as f:
-        s = f.readlines()
-        template_numbers = list(map(int, ''.join(s).replace(",", "").replace("\n", " ").split()))
-    return template_numbers
-
-template_numbers = get_template_numbers()
-
-def filter_image(image_url, template_number, rotate=10):
+def filter_image(image_url, template_number, rotate=DEFAULT_ROTATE ):
     result_url = api.template_process(
         template_number,
         [{
@@ -92,12 +83,10 @@ def filter_image(image_url, template_number, rotate=10):
     )
     return result_url
 
-def make_fun_gif(path):
+def make_fun_gif(path, iterations=FILTER_ITERATIONS):
     global template_numbers
     print("Making gif:", path)
     original_content_url = upload_image(path)
-    iterations = 10
-
     result_image_urls = [original_content_url]
 
     for i in tqdm(range(iterations)):
