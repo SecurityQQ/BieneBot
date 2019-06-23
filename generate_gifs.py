@@ -66,7 +66,7 @@ def read_dataset(filepath="./data/asdf - asdf.csv"):
     data["score"] = data[data.columns[2:]].sum(axis=1)
     data = data[["f", "s", "score"]]
 
-    data.score = data.score + 1e-5
+    data = data[data.score != 0]
     return data
 
 def random_walk(MAX_TEMPLATES=5):
@@ -75,12 +75,11 @@ def random_walk(MAX_TEMPLATES=5):
     next_template = random.choice(data.f.unique())
     template_sequence = [next_template]
 
-    while len(template_sequence) < MAX_TEMPLATES:
+    for i in range(MAX_TEMPLATES):
         try:
             data_slice = data[data.f == next_template]
             if data_slice.shape[0] == 0:
-                template_sequence[-1] = random.choice(data.f.unique())
-                continue
+                break
             next_template = random.choices(list(data_slice.s), list(data_slice.score))[0]
             template_sequence.append(next_template)
         except Exception as e:
