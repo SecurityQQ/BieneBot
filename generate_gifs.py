@@ -76,6 +76,26 @@ with open("numbers_of_templates.txt") as f:
     template_numbers = list(map(int, ''.join(s).replace(",", "").replace("\n", " ").split()))
 
 
+def get_template_numbers():
+    template_numbers = []
+    with open("numbers_of_templates.txt") as f:
+        s = f.readlines()
+        template_numbers = list(map(int, ''.join(s).replace(",", "").replace("\n", " ").split()))
+    return template_numbers
+
+
+def filter_image(image_url, template_number, rotate=10):
+    result_url = api.template_process(
+        template_number,
+        [{
+            'url' : image_url,
+            'rotate': rotate,
+            'flip' : 0,
+            'crop' : '0,0,1,1'
+        }]
+    )
+    return result_url
+
 def make_fun_gif(path):
     global template_numbers
     print("Making gif:", path)
@@ -83,11 +103,6 @@ def make_fun_gif(path):
     iterations = 10
 
     result_image_urls = [original_content_url]
-
-
-
-    # In[57]:
-
 
     for i in tqdm(range(iterations)):
         print("{}/{}".format(i, iterations))
