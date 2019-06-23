@@ -119,7 +119,9 @@ def make_fun_gif(path, iterations=FILTER_ITERATIONS):
     print("Making gif:", path)
     original_content_url = upload_image(path)
     result_image_urls = [original_content_url]
-    templates = random_walk(iterations)
+    templates = random_walk(iterations * 5)
+
+    success_i = 0
     for i, template in enumerate(templates):
         print("{}/{}".format(i, iterations))
         template_number=template
@@ -135,6 +137,9 @@ def make_fun_gif(path, iterations=FILTER_ITERATIONS):
             # If result is image, not video
             if ".jpg" in result_url or ".png" in result_url or ".jpeg" in result_url:
                 result_image_urls.append(result_url)
+                success_i = success_i + 1
+        if success_i >= iterations:
+            break
         except Exception as e:
             print("Error with filter:", template_number, e)
 
