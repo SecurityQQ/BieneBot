@@ -5,7 +5,7 @@ PyYAML==5.1
 imageio==2.5.0
 tqdm==4.32.1
 scipy==1.1.0
-requests==2.19.1
+requests==2.20.0
 flask
 flask-cors
 
